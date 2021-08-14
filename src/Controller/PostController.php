@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/post')]
+#[Route('/')]
 class PostController extends AbstractController
 {
     #[Route('/', name: 'post_index', methods: ['GET'])]

@@ -10,3 +10,10 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+//jQuery inladen
+const $ = require('jquery');
+require('bootstrap/dist/css/bootstrap.css');
+$(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
+});
