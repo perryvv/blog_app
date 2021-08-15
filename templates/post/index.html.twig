@@ -3,25 +3,23 @@
 {% block title %}Post index{% endblock %}
 
 {% block body %}
-    <h1>Post index</h1>
-
-    <div>
-    <a href="{{path('admin_panel')}}">Admin Panel</a>
+    <h1>Microblog</h1>
+    <a href="{{path('admin_panel')}}"><button class="btn btn-primary">Admin Panel</button></a>
+        <div>
         {% for post in posts %}
-
                 <h2><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.titel }}</a></h2>
-                <h3>{{ post.subtitel }}</h3>
-                <p>{{ post.content }}</p>
                 <p>{{ post.publishdate ? post.publishdate|date('Y-m-d') : '' }}</p>
-                <p>{{ post.imgUrl }}</p>
+                <h4>{{ post.subtitel }}</h4>
+                <p>{{ post.content|slice(0, 50) }}... <a href="{{ path('post_show', {'id': post.id}) }}">Lees meer </a></p>
+                {% if post.imgUrl is not empty %}
+                <td><img src="{{asset('uploads/images/' ~ post.imgUrl)}}"></td><br>
+                {%endif%}
                 <p>
-                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
-                    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
+                    <a href="{{ path('post_show', {'id': post.id}) }}"><button class="btn btn-primary">show</button></a>
                 </p>
                 <hr>
         {% else %}
                 <p>no records found</p>
         {% endfor %}
-
-    <a href="{{ path('post_new') }}">Create new</a>
+    </div>
 {% endblock %}

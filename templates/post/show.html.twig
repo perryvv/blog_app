@@ -1,34 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Post{% endblock %}
+{% block title %}{{post.titel}}{% endblock %}
 
 {% block body %}
 
-    <h1>Post</h1>
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Titel</th>
-                <td>{{ post.titel }}</td>
-            </tr>
-            <tr>
-                <th>Subtitel</th>
-                <td>{{ post.subtitel }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ post.content }}</td>
-            </tr>
-            <tr>
-                <th>Publishdate</th>
-                <td>{{ post.publishdate ? post.publishdate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Img_url</th>
-                <td>{{ post.imgUrl }}</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <div id="test">
+    <h1>{{ post.titel }}</h1>
+        
+    <p>{{ post.subtitel }}</p>
+    <p>{{ post.publishdate ? post.publishdate|date('Y-m-d') : '' }}</p>
+    {% if post.imgUrl is not empty %}
+    <td><img src="{{asset('uploads/images/' ~ post.imgUrl)}}"></td>
+    {%endif%}
+    <p>{{ post.content }}</p>
     <a href="{{ path('post_index') }}">back to list</a>
+    </div>
 {% endblock %}
