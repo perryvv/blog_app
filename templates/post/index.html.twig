@@ -4,7 +4,6 @@
 
 {% block body %}
     <h1>Microblog</h1>
-    <a href="{{path('admin_panel')}}"><button class="btn btn-primary float-end">Admin Panel</button></a>
         <div>
         {% for post in posts %}
                 <h2><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.titel }}</a></h2>

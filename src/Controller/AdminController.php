@@ -14,7 +14,6 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 #[Route('/admin')]
 class AdminController extends AbstractController
 {
-
     #[Route('/', name: 'admin_index', methods: ['GET'])]
     public function index(PostRepository $postRepository): Response
     {
