@@ -12,7 +12,7 @@
     {% if post.imgUrl is not empty %}
     <td><img src="{{asset('uploads/images/' ~ post.imgUrl)}}"></td>
     {%endif%}
-    <p>{{ post.content }}</p>
+    {{ post.content|purify }}
     <a href="{{ path('post_index') }}">back to list</a>
     </div>
 {% endblock %}

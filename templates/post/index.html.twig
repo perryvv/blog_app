@@ -4,13 +4,13 @@
 
 {% block body %}
     <h1>Microblog</h1>
-    <a href="{{path('admin_panel')}}"><button class="btn btn-primary">Admin Panel</button></a>
+    <a href="{{path('admin_panel')}}"><button class="btn btn-primary float-end">Admin Panel</button></a>
         <div>
         {% for post in posts %}
                 <h2><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.titel }}</a></h2>
                 <p>{{ post.publishdate ? post.publishdate|date('Y-m-d') : '' }}</p>
                 <h4>{{ post.subtitel }}</h4>
-                <p>{{ post.content|slice(0, 50) }}... <a href="{{ path('post_show', {'id': post.id}) }}">Lees meer </a></p>
+                {{ post.content|slice(0, 50)|purify }}<a href="{{ path('post_show', {'id': post.id}) }}">Lees meer</a>
                 {% if post.imgUrl is not empty %}
                 <td><img src="{{asset('uploads/images/' ~ post.imgUrl)}}"></td><br>
                 {%endif%}
@@ -19,7 +19,7 @@
                 </p>
                 <hr>
         {% else %}
-                <p>no records found</p>
+                <p>Geen blogposts gevonden.</p>
         {% endfor %}
     </div>
 {% endblock %}

@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\File;
-use Symfony\Component\Validator\Constraints\Required;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class PostType extends AbstractType
 {
@@ -28,8 +28,9 @@ class PostType extends AbstractType
             
             ->add('publishdate', DateType::class, ['constraints' => [new NotBlank()]])
 
-            ->add('content', TextareaType::class, ['constraints' => [new NotBlank()],
-            'attr' => ['class' => 'form-control']
+            ->add('content', CKEditorType::class, array('config' => array([
+                'uiColor' => '#ffffff',
+            ])), ['constraints' => [new NotBlank()]
             ])
 
             ->add('img_url', FileType::class, ['label' => 'image (JPEG, JPG, PNG)',

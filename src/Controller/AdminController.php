@@ -85,8 +85,10 @@ class AdminController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$post->getId(), $request->request->get('_token'))) {
             //kijken of er een image aanwezig is. Zo ja verwijderen.
-            if(file_exists('../public/uploads/images/'.$post->getImgUrl($post))) {
-                unlink('../public/uploads/images/'.$post->getImgUrl($post));
+            if(!empty($post->getImgUrl($post))) {
+                if(file_exists('../public/uploads/images/'.$post->getImgUrl($post))) {
+                    unlink('../public/uploads/images/'.$post->getImgUrl($post));
+                }
             }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($post);
