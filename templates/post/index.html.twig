@@ -7,7 +7,7 @@
         <div>
         {% for post in posts %}
                 <h2><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.titel }}</a></h2>
-                <p>{{ post.publishdate ? post.publishdate|date('Y-m-d') : '' }}</p>
+                <p>{{ post.publishdate ? post.publishdate|date('d-m-Y') : '' }}</p>
                 <h4>{{ post.subtitel }}</h4>
                 {{ post.content|slice(0, 160)|purify }}
                 {% if post.imgUrl is not empty %}

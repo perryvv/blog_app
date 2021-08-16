@@ -15,7 +15,7 @@
     <body>
     <div class="w-100 p-3">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <a href="{{path('app_logout')}}"><button class="btn btn-danger float-end">Logout</button></a>
+            <a href="{{path('app_logout')}}"><button class="btn btn-danger float-end">Uitloggen</button></a>
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{path('admin_panel')}}"><button class="btn btn-primary float-end">Admin Panel</button></a>
         {% endif %}

@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit Post</h1>
 
-    {{ include('admin/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/_form.html.twig', {'button_label': 'Opslaan'}) }}
 
-    <a href="{{ path('admin_index') }}">back to list</a>
+    <a href="{{ path('admin_index') }}"><button class="btn btn-primary">Terug naar blog</button></a><br>
 
     {{ include('admin/_delete_form.html.twig') }}
 {% endblock %}

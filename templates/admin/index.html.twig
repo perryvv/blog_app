@@ -11,9 +11,9 @@
                 <th>Id</th>
                 <th>Titel</th>
                 <th>Subtitel</th>
-                <th>Publishdate</th>
-                <th>Img_url</th>
-                <th>actions</th>
+                <th>Publicatie Datum</th>
+                <th>Afbeelding-url</th>
+                <th>Acties</th>
             </tr>
         </thead>
         <tbody>
@@ -22,11 +22,11 @@
                 <td>{{ post.id }}</td>
                 <td>{{ post.titel }}</td>
                 <td>{{ post.subtitel }}</td>
-                <td>{{ post.publishdate ? post.publishdate|date('Y-m-d') : '' }}</td>
+                <td>{{ post.publishdate ? post.publishdate|date('d-m-Y') : '' }}</td>
                 <td>{{ post.imgUrl }}</td>
                 <td>
-                    <a href="{{ path('admin_show', {'id': post.id}) }}"><button class="btn btn-primary">show</button></a>
-                    <a href="{{ path('admin_edit', {'id': post.id}) }}"><button class="btn btn-warning">edit</button></a>
+                    <a href="{{ path('admin_show', {'id': post.id}) }}"><button class="btn btn-primary">Tonen</button></a>
+                    <a href="{{ path('admin_edit', {'id': post.id}) }}"><button class="btn btn-warning">Aanpassen</button></a>
                     {{ include('admin/_delete_form.html.twig') }}
                 </td>
             </tr>
@@ -37,5 +37,5 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('admin_new') }}"><button class="btn btn-success">Create New</button></a>
+    <a href="{{ path('admin_new') }}"><button class="btn btn-success">Nieuwe Blogpost</button></a>
 {% endblock %}

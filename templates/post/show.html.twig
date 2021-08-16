@@ -4,15 +4,14 @@
 
 {% block body %}
 
-    <div id="test">
+
     <h1>{{ post.titel }}</h1>
-        
-    <p>{{ post.subtitel }}</p>
-    <p>{{ post.publishdate ? post.publishdate|date('Y-m-d') : '' }}</p>
+    <p>Publicatie datum: {{ post.publishdate ? post.publishdate|date('d-m-Y') : '' }}</p>
+    <h4>{{ post.subtitel }}</h4>
     {% if post.imgUrl is not empty %}
     <td><img src="{{asset('uploads/images/' ~ post.imgUrl)}}"></td>
     {%endif%}
     {{ post.content|purify }}
-    <a href="{{ path('post_index') }}">Terug naar blog</a>
-    </div>
+    <a href="{{ path('post_index') }}"><button class="btn btn-primary">Terug naar blog</button></a>
+
 {% endblock %}
