@@ -22,19 +22,17 @@ class PostRepository extends ServiceEntityRepository
     // /**
     //  * @return Post[] Returns an array of Post objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    //override findAll() om op datum te sorteren.
+    public function findAll()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('p.publishdate', 'DESC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Post

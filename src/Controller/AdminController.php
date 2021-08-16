@@ -32,6 +32,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $imageFile = $form->get('img_url')->getData();
+            //afbeelding upload, andere naam toewijzen, en verplaatsen naar public/uploads/images
             if($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);

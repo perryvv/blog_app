@@ -9,12 +9,12 @@
                 <h2><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.titel }}</a></h2>
                 <p>{{ post.publishdate ? post.publishdate|date('Y-m-d') : '' }}</p>
                 <h4>{{ post.subtitel }}</h4>
-                {{ post.content|slice(0, 50)|purify }}<a href="{{ path('post_show', {'id': post.id}) }}">Lees meer</a>
+                {{ post.content|slice(0, 160)|purify }}
                 {% if post.imgUrl is not empty %}
                 <td><img src="{{asset('uploads/images/' ~ post.imgUrl)}}"></td><br>
                 {%endif%}
                 <p>
-                    <a href="{{ path('post_show', {'id': post.id}) }}"><button class="btn btn-primary">show</button></a>
+                    <a href="{{ path('post_show', {'id': post.id}) }}"><button class="btn btn-primary">Lees Verder</button></a>
                 </p>
                 <hr>
         {% else %}
